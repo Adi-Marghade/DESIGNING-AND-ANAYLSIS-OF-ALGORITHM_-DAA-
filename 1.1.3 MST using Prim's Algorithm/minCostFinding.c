@@ -21,7 +21,6 @@ void printTree(int parent[], int graph[V][V], int vertices) {
     for (int i = 1; i < vertices; i++)
         printf("%d - %d \t%d \n", parent[i], i, graph[i][parent[i]]);
 }
-
 void prim(int graph[V][V], int vertices) {
 	 int parent[V];
     int key[V];
@@ -62,4 +61,11 @@ int main() {
     printf("Adjacency matrix elements (row wise):\n");
     for (int i = 0; i < vertices; i++) {
         for (int j = 0; j < vertices; j++) {
+            scanf("%d", &graph[i][j]);
         }
+    }
+
+    prim(graph, vertices);
+
+    return 0;
+}
