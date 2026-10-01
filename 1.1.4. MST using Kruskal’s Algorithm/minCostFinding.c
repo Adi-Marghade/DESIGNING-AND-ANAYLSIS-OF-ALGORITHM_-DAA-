@@ -59,11 +59,25 @@ void kruskalMST(int **cost, int V)
     printf("Minimum cost= %d\n", minCost);
 }
 
-
 int main() {
     int V;
     printf("No of vertices: ");
     scanf("%d", &V);
 
     int **cost = (int **)malloc(V * sizeof(int *));
+    for (int i = 0; i < V; i++)
+        cost[i] = (int *)malloc(V * sizeof(int));
+
+    printf("Adjacency matrix:\n");
+    for (int i = 0; i < V; i++)
+        for (int j = 0; j < V; j++)
+            scanf("%d", &cost[i][j]);
+
+    kruskalMST(cost, V);
+
+    for (int i = 0; i < V; i++)
+        free(cost[i]);
+    free(cost);
+
+    return 0;
 }
